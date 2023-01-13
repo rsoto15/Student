@@ -56,7 +56,7 @@ def logout():
 
     return redirect(url_for('login'))
 
-@app.route('/login/register', methods=['GET', 'POST'])
+@app.route('/register', methods=['GET', 'POST'])
 def register():
     msg = ''
     
@@ -84,13 +84,13 @@ def register():
         msg = 'Please fill out the form!'
     return render_template('register.html', msg=msg)
 
-@app.route('/login/home')
+@app.route('/home')
 def home():
     if 'loggedin' in session:
         return render_template('home.html', username=session['username'], id=session['id'])
     return redirect(url_for('login'))
 
-@app.route('/login/students', methods=['POST', 'GET'])
+@app.route('/students', methods=['POST', 'GET'])
 def students():
     if 'loggedin' in session:
         msg = ''
@@ -120,7 +120,7 @@ def students():
     return redirect(url_for('login'))
 
 
-@app.route('/login/students2', methods=['GET'])
+@app.route('/students2', methods=['GET'])
 def students2():
     if 'loggedin' in session:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -129,7 +129,7 @@ def students2():
         return render_template('students2.html',account=account)
     return redirect(url_for('login'))
 
-@app.route('/login/students2/update/<id>', methods=['GET', 'POST'])
+@app.route('/students2/update/<id>', methods=['GET', 'POST'])
 def update(id):
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute('SELECT * from add_students WHERE id = %s', id,)
@@ -156,7 +156,7 @@ def update_user():
         
         return redirect(url_for('students2'))
 
-@app.route('/login/students2/delete/<id>')
+@app.route('/students2/delete/<id>')
 def delete(id):
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute('SELECT * from add_students WHERE id = %s', id,)
@@ -175,7 +175,7 @@ def delete_user():
 
         return redirect(url_for('students2'))
 
-@app.route('/login/notesform/<id>', methods=['POST', 'GET'])
+@app.route('/notesform/<id>', methods=['POST', 'GET'])
 def notesform(id):
     if 'loggedin' in session:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -199,7 +199,7 @@ def notesform(id):
             
     return redirect(url_for('login'))
 
-@app.route('/login/notes', methods=['GET'])
+@app.route('/notes', methods=['GET'])
 def notes():
     if 'loggedin' in session:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -209,7 +209,7 @@ def notes():
     return redirect(url_for('login'))
 
 
-@app.route('/login/students2/studentnotes/<student_id>', methods=['POST', 'GET'])
+@app.route('students2/studentnotes/<student_id>', methods=['POST', 'GET'])
 def studentnotes(student_id):
     if 'loggedin' in session:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
