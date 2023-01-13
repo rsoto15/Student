@@ -23,7 +23,7 @@ app.config['MYSQL_PASSWORD'] = 'Junior22!'
 app.config['MYSQL_DB'] = 'pythonlogin'
 app.config['HOST'] = '/tmp/mysql.sock'
 # Flask to use the above defined config
-app.config.from_mapping(config)
+
 
 mysql = MySQL(app)
 
