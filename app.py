@@ -20,7 +20,7 @@ secret_key = secrets.token_hex(16)
 
 app.config['SECRET_KEY'] = secret_key
 
-app.config['MYSQL_HOST'] = 'studenthubmanager.herokuapp.com'
+app.config['MYSQL_HOST'] = 'tmp/mysql.sock'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'Junior22!'
 app.config['MYSQL_DB'] = 'pythonlogin'
