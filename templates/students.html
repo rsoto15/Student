@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <form action="{{ url_for('students') }}" method="post" autocomplete="off" class="form-control form-control-sm">
+        
+        <label for="id">
+        </label>
+        <input type="hidden" name="id">
+        
+            
+        <div class="mb-3">    
+        <label for="username">
+        </label>
+        <input type="text" name="username" placeholder="Username" id="username" required>
+        </div>
+
+        <div class="mb-3">  
+        <label for="studentID">
+        </label>
+        <input type="text" name="studentID" placeholder="Student ID" id="studentID" required>
+        </div>
+
+        <div class="mb-3">  
+        <label for="sped">
+        </label>
+        <input type="text" name="sped" placeholder="Sped" id="sped" required>
+        </div>
+
+        <div class="mb-3">  
+        <label for="parentsName" class="form-label">
+        </label>
+        <input type="parentsName" name="parentsName" placeholder="parents Name" id="parentsName" required>
+        </div>
+        <div class="mb-3">  
+
+        <label for="contactInfo" class="form-label">
+        </label>
+        <input type="contactInfo" name="contactInfo" placeholder="Parents Phone Number" id="contactInfo" required>
+        </div>
+        
+        <input type="submit" value="Add">
+    </form>
+
+{% endblock %}
