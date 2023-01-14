@@ -18,10 +18,10 @@ app = Flask(__name__)
 import secrets
 
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
-app.config['MYSQL_HOST'] = os.environ.get("JAWSDB_MARIA_URL", "localhost")
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'Junior22!'
-app.config['MYSQL_DB'] = 'pythonlogin'
+app.config['MYSQL_HOST'] = "iu51mf0q32fkhfpl.cbetxkdyhwsb.us-east-1.rds.amazonaws.com"
+app.config['MYSQL_USER'] = 'sciykvdb2o5i0e0l'
+app.config['MYSQL_PASSWORD'] = 'v065j0eo3fqz33iq'
+app.config['MYSQL_DB'] = 'c5c3m21wyx69qw37'
 
 # Flask to use the above defined config
 app.config.from_mapping(config)
