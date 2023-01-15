@@ -17,10 +17,10 @@ config = {
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
-app.config['MYSQL_HOST'] = secrets.get('MYSQL_HOST')
-app.config['MYSQL_USER'] = secrets.get('MYSQL_USER')
-app.config['MYSQL_PASSWORD'] = secrets.get('MYSQL_PASSWORD')
-app.config['MYSQL_DB'] = secrets.get('MYSQL_DB')
+app.config['MYSQL_HOST'] = 'iu51mf0q32fkhfpl.cbetxkdyhwsb.us-east-1.rds.amazonaws.com'
+app.config['MYSQL_USER'] = 'sciykvdb2o5i0e0l'
+app.config['MYSQL_PASSWORD'] = 'v065j0eo3fqz33iq'
+app.config['MYSQL_DB'] = 'c5c3m21wyx69qw37'
 
 app.config.from_mapping(config)
 
