@@ -28,4 +28,3 @@ wheel==0.38.4
 flask-mysqldb==1.0.1
 mysqlclient==2.1.1
 zipp==3.11.0
-mariadb==1.1.5
