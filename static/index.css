@@ -1,0 +1,123 @@
+html {
+    background-color: #2372b6;
+  }
+
+h1 {
+    color: white;
+}
+
+h2 {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display:inline-block;
+    margin: 40px 8px 10px 8px; 
+}
+
+a {
+    color: #cccccc;
+    text-decoration: none;
+}
+
+.active {
+    color: #cccccc;
+  }
+
+.inactive {
+    color: #cccccc;
+  }
+
+#username {
+    padding: 15px 80px;
+    text-align: center;
+    display: inline-block;
+    margin: 2%;
+    border-radius: 10px 10px 10px 10px;
+}
+
+#password {
+    padding: 15px 80px;
+    text-align: center;
+    display: inline-block;
+    margin: 2%;
+    border-radius: 10px 10px 10px 10px;
+}
+
+#email {
+    padding: 15px 80px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 10px 10px 10px 10px;
+}
+
+#login {
+    margin: 2%;
+    padding: 15px 20px;
+    text-align: center;
+    display: inline-block;  
+    background-color: #2372b6;
+    border-radius: 10px 10px 10px 10px;
+}
+
+#register {
+    padding: 15px 20px;
+    margin: 2%;
+    text-align: center;
+    display: inline-block;  
+    background-color: #2372b6;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.login {
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    justify-content: center;
+    max-width: 100%;
+    min-height: 100%;
+    padding: 50px;
+  }
+
+.register {
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    justify-content: center;
+    max-width: 100%;
+    min-height: 100%;
+    padding: 50px;
+  }
+
+.formContent {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    padding: 30px;
+    width: 90%;
+    
+    max-width: 500px;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    text-align: center;
+   
+  }
+
+.formFooter{
+    background-color: #f6f6f6;
+    border-top: 1px solid #dce8f1;
+    padding: 25px;
+    text-align: center;
+    -webkit-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
+}
+
+a.underlineHover:hover {
+    color: #0d0d0d;
+  }
+  
+a.underlineHover:hover:after{
+    width: 100%;
+  }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/index.css/">
+</head>
+<body>
+    <div class='register'>
+        <h1>Student Hub</h1>
+        <div class="formContent">
+            <h2 class="active"><a href="{{ url_for('login') }}" class="active underlineHover">Login </a></h2>
+            <h2 class="active"><a href="{{ url_for('register') }}" class="inactive underlineHover">Register</a></h2>
+        
+        <form action="{{ url_for('register') }}" method="post" autocomplete="off">
+            <label for="username">
+                <i class="fas fa-user"></i>
+            </label>
+            <input type="text" name="username" placeholder="Username" id="username" required>
+            <label for="password">
+                <i class="fas fa-lock"></i>
+            </label>
+            <input type="password" name="password" placeholder="Password" id="password" required>
+            <label for="email">
+                <i class="fas fa-envelope"></i>
+            </label>
+            <input type="email" name="email" placeholder="Email" id="email" required>
+            <div class="msg">{{ msg }}</div>
+            <input type="submit" value="Register" id="register">
+        </form>
+    </div>
+    </div>
+</body>
+</html>
