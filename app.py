@@ -181,7 +181,7 @@ def delete_user():
 def notesform(id):
     if 'loggedin' in session:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * from add_students WHERE id = %s', id,)
+        cursor.execute('SELECT * from add_students WHERE id = %s', (id,))
         account = cursor.fetchone()
         
         if account:
