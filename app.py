@@ -161,7 +161,7 @@ def update_user():
 @app.route('/students2/delete/<id>')
 def delete(id):
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute('SELECT * from add_students WHERE id = %s', id,)
+    cursor.execute('SELECT * from add_students WHERE id = %s', (id,))
     account = cursor.fetchone()
 
     if account:
