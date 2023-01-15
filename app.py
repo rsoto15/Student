@@ -134,7 +134,7 @@ def students2():
 @app.route('/students2/update/<id>', methods=['GET', 'POST'])
 def update(id):
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute('SELECT * from add_students WHERE id = %s', id,)
+    cursor.execute('SELECT * from add_students WHERE id = %s', (id,))
     account = cursor.fetchone()
     
     if account:
