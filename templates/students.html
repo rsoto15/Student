@@ -3,44 +3,57 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <form action="{{ url_for('students') }}" method="post" autocomplete="off" class="form-control form-control-sm">
+    <form action="{{ url_for('students') }}" method="post" autocomplete="off" class="form-control form-control-sm" id="studentform">
         
+           
         <label for="id">
         </label>
         <input type="hidden" name="id">
         
-            
+
+        <ul>
+        <li>    
         <div class="mb-3">    
         <label for="username">
         </label>
         <input type="text" name="username" placeholder="Username" id="username" required>
         </div>
+        </li>
 
+        <li>
         <div class="mb-3">  
         <label for="studentID">
         </label>
         <input type="text" name="studentID" placeholder="Student ID" id="studentID" required>
         </div>
+        </li>   
 
+        <li>
         <div class="mb-3">  
         <label for="sped">
         </label>
         <input type="text" name="sped" placeholder="Sped" id="sped" required>
         </div>
+        </li>
 
+        <li>
         <div class="mb-3">  
         <label for="parentsName" class="form-label">
         </label>
-        <input type="parentsName" name="parentsName" placeholder="parents Name" id="parentsName" required>
+        <input type="text" name="parentsName" placeholder="parents Name" id="parentsName" required>
         </div>
-        <div class="mb-3">  
+        </li>
 
+        <li>
+        <div class="mb-3">  
         <label for="contactInfo" class="form-label">
         </label>
-        <input type="contactInfo" name="contactInfo" placeholder="Parents Phone Number" id="contactInfo" required>
+        <input type="text" name="contactInfo" placeholder="Parents Phone Number" id="contactInfo" required>
         </div>
-        
-        <input type="submit" value="Add">
+        </li>
+
+        <input type="submit" value="Add" id="newstudent">
+        </ul>
     </form>
 
 {% endblock %}
