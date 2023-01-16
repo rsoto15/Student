@@ -32,8 +32,15 @@ def login():
     msg = ''
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
         username = request.form['username']
-        password = request.form['password']
-        hsp = check_password_hash(password)
+        
+        
+        
+        hsp = generate_password_hash(
+        request.form['password'],
+        method='pbkdf2:sha256',
+        salt_length=10
+        )
+        
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM accounts WHERE username = %s and password = %s', (username, hsp))
         account = cursor.fetchone()
