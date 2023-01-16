@@ -8,10 +8,6 @@ import re
 from datetime import datetime
 import os
 
-
-
-from secrets import secrets
-
 config = {
     "DEBUG": True  # run app in debug mode
 }
@@ -19,10 +15,10 @@ config = {
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
-app.config['MYSQL_HOST'] = secrets.get('MYSQL_HOST')
-app.config['MYSQL_USER'] = secrets.get('MYSQL_USER')
-app.config['MYSQL_PASSWORD'] = secrets.get('MYSQL_PASSWORD')
-app.config['MYSQL_DB'] = secrets.get('MYSQL_DB')
+app.config['MYSQL_HOST'] = os.environ.get('MYSQL_HOST')
+app.config['MYSQL_USER'] = os.environ.get('MYSQL_USER')
+app.config['MYSQL_PASSWORD'] = os.environ.get('MYSQL_PASSWORD')
+app.config['MYSQL_DB'] = os.environ.get('MYSQL_DB')
 
 app.config.from_mapping(config)
 
