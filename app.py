@@ -38,7 +38,7 @@ def login():
         cursor.execute('SELECT * FROM accounts WHERE username = %s', (username,))
         account = cursor.fetchone()
 
-        if check_password_hash(account.password, request.form['password']):
+        if check_password_hash(account['password'], request.form['password']):
             session['loggedin'] = True
             session['id'] = account['id']
             session['username'] = account['username']
