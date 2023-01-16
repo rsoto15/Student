@@ -32,20 +32,13 @@ def login():
     msg = ''
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
         username = request.form['username']
-        
-        
-        
-        hsp = generate_password_hash(
-        request.form['password'],
-        method='pbkdf2:sha256',
-        salt_length=10
-        )
+        password = request.form['password']
         
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM accounts WHERE username = %s and password = %s', (username, hsp))
+        cursor.execute('SELECT * FROM accounts WHERE username = %s and password = %s', (username))
         account = cursor.fetchone()
 
-        if account:
+        if account and check_password_hash(account.password, password):
             session['loggedin'] = True
             session['id'] = account['id']
             session['username'] = account['username']
