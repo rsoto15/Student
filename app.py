@@ -7,7 +7,8 @@ import MySQLdb.cursors
 import re
 from datetime import datetime
 import os
-from werkzeug import generate_password_hash, check_password_hash
+from werkzeug.security import generate_password_hash
+from werkzeug.security import check_password_hash
 
 config = {
     "DEBUG": True  # run app in debug mode
