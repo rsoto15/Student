@@ -9,6 +9,7 @@ from datetime import datetime
 import os
 from werkzeug.security import generate_password_hash
 from werkzeug.security import check_password_hash
+from validate_email import validate_email
 
 
 config = {
@@ -69,10 +70,12 @@ def register():
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM accounts WHERE username = %s and email = %s', (username, email))
         account = cursor.fetchone()
+
+        is_valid = validate_email(email, verify=True)
         
         if account:
             msg = 'Account already exists!'
-        elif not re.match(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)', email):
+        elif not re.match(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)', email) and is_valid == False:
             msg = 'Invalid email address!'
         elif not re.match(r'[A-Za-z0-9]+', username):
             msg = 'Username must contain only characters and numbers!'
