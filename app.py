@@ -9,7 +9,6 @@ from datetime import datetime
 import os
 from werkzeug.security import generate_password_hash
 from werkzeug.security import check_password_hash
-from email_validator import validate_email, EmailNotValidError
 
 
 config = {
@@ -71,13 +70,9 @@ def register():
         cursor.execute('SELECT * FROM accounts WHERE username = %s and email = %s', (username, email))
         account = cursor.fetchone()
         
-        is_new_account = True
-        e_val = validate_email(email, check_deliverability=is_new_account)
-        norm_email = e_val.email
-        
         if account:
             msg = 'Account already exists!'
-        elif not re.match(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)', email) and norm_email == False:
+        elif not re.match(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)', email):
             msg = 'Invalid email address!'
         elif not re.match(r'[A-Za-z0-9]+', username):
             msg = 'Username must contain only characters and numbers!'
