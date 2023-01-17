@@ -9,7 +9,6 @@ from datetime import datetime
 import os
 from werkzeug.security import generate_password_hash
 from werkzeug.security import check_password_hash
-from verify_email import verify_email
 
 config = {
     "DEBUG": True  # run app in debug mode
@@ -70,11 +69,9 @@ def register():
         cursor.execute('SELECT * FROM accounts WHERE username = %s and email = %s', (username, email))
         account = cursor.fetchone()
         
-        email_verification = verify_email(email)
-        
         if account:
             msg = 'Account already exists!'
-        elif not re.match(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)', email) and email_verification == False:
+        elif not re.match(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)', email):
             msg = 'Invalid email address!'
         elif not re.match(r'[A-Za-z0-9]+', username):
             msg = 'Username must contain only characters and numbers!'
