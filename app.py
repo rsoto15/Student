@@ -9,6 +9,7 @@ from datetime import datetime
 import os
 from werkzeug.security import generate_password_hash
 from werkzeug.security import check_password_hash
+from verify_email import verify_email
 
 config = {
     "DEBUG": True  # run app in debug mode
