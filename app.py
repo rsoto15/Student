@@ -9,7 +9,6 @@ from datetime import datetime
 import os
 from werkzeug.security import generate_password_hash
 from werkzeug.security import check_password_hash
-from validate_email import validate_email
 import validate_email
 
 
