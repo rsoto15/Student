@@ -10,6 +10,8 @@ import os
 from werkzeug.security import generate_password_hash
 from werkzeug.security import check_password_hash
 import validate_email
+from validate_email import validate_email
+
 
 
 config = {
